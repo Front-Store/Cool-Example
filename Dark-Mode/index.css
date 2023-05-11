@@ -11,66 +11,94 @@ html {
   --lightColor: #232323;
 }
 
-html[data-theme=dark] {
+html[data-theme="dark"] {
   background: var(--lightBg);
   --lightBtn: #ffbd07;
   --lightBg: #232323;
   --lightColor: #fff;
 }
 
-h1 {
-  font-family: "Poppins", sans-serif;
-  font-weight: 300;
-  color: var(--lightColor);
-}
-
-input[type=checkbox] {
+input[type="checkbox"] {
   height: 0;
   width: 0;
   visibility: hidden;
 }
 
-label {
-  cursor: pointer;
-  text-indent: -9999px;
-  width: 55px;
-  height: 30px;
-  background: var(--lightBtn);
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  -webkit-border-radius: 100px;
-  -moz-border-radius: 100px;
-  border-radius: 100px;
-  position: relative;
-}
-
-label:after {
-  content: "";
-  background: #fff;
-  width: 20px;
-  height: 20px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
+[type="checkbox"]:checked,
+[type="checkbox"]:not(:checked) {
   position: absolute;
-  top: 5px;
-  left: 4px;
-  transition: cubic-bezier(0.68, -0.55, 0.27, 1.55) 320ms;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
 }
 
-input:checked + label {
-  background: #ffbd07;
+.dark-light:checked + label,
+.dark-light:not(:checked) + label {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  z-index: 20000;
+  display: block;
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  cursor: pointer;
+  transition: all 200ms linear;
+  box-shadow: 0 0 25px rgba(255, 235, 167, 0.45);
 }
 
-input:checked + label:after {
-  left: calc(100% - 5px);
-  -webkit-transform: translateX(-100%);
-  -moz-transform: translateX(-100%);
-  -ms-transform: translateX(-100%);
-  -o-transform: translateX(-100%);
-  transform: translateX(-100%);
+.dark-light:checked + label {
+  transform: rotate(360deg);
 }
 
+.dark-light:checked + label:after,
+.dark-light:not(:checked) + label:after {
+  position: absolute;
+  content: "";
+  top: 1px;
+  left: 1px;
+  overflow: hidden;
+  z-index: 2;
+  display: block;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  background-color: #102770;
+  background-image: url("https://assets.codepen.io/1462889/moon.svg");
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 200ms linear;
+  opacity: 0;
+}
+.dark-light:checked + label:after {
+  opacity: 1;
+}
+.dark-light:checked + label:before,
+.dark-light:not(:checked) + label:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 1;
+  display: block;
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  background-color: #48dbfb;
+  background-image: url("https://assets.codepen.io/1462889/sun.svg");
+  background-size: 25px 25px;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 200ms linear;
+}
+
+.dark-light:checked + label:before {
+  background-color: #000;
+}
+
+.dark-light:checked ~ .light-back {
+  opacity: 1;
+}
 /*# sourceMappingURL=index.css.map */
