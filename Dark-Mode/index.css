@@ -35,8 +35,6 @@ input[type="checkbox"] {
 .dark-light:checked + label,
 .dark-light:not(:checked) + label {
   position: fixed;
-  top: 40px;
-  right: 40px;
   z-index: 20000;
   display: block;
   border-radius: 50%;
