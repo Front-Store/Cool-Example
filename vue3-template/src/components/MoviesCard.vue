@@ -84,7 +84,10 @@
 </template>
 
 <script>
-import VueCardStack from "https://assets.codepen.io/152347/vue-card-stack.esm.js?skahdfjahj";
+import { defineAsyncComponent } from "vue";
+const VueCardStack = defineAsyncComponent(() =>
+  import("https://assets.codepen.io/152347/vue-card-stack.esm.js?skahdfjahj")
+);
 
 export default {
   name: "App",
