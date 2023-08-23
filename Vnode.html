@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <div id="app"></div>
+    <script>
+      debugger;
+      class VNode {
+        constructor(tag, props, children) {
+          this.tag = tag;
+          this.props = props;
+          this.children = children;
+        }
+
+        toString() {
+          return `<${this.tag} ${this.props}>${this.children}</${this.tag}>`;
+        }
+      }
+
+      function createElement(tag, props, children) {
+        return new VNode(tag, props, children);
+      }
+
+      function h(tag, props, children) {
+        return createElement(tag, props, children);
+      }
+
+      function render(vnode, container) {
+        container.innerHTML = vnode.toString();
+      }
+
+      // 使用示例
+      const app = document.getElementById("app");
+      const vnode = h("div", {}, [
+        h("h1", {}, "Hello, Vue!"),
+        h("p", {}, "This is a simple virtual DOM implementation."),
+      ]);
+
+      render(vnode, app);
+    </script>
+  </body>
+</html>
