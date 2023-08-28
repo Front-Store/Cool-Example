@@ -1,5 +1,12 @@
 import React from "react";
+import Moment from 'moment';
+import 'moment/dist/locale/zh-cn';
+
 import "./App.scss";
+
+Moment.locale('zh-cn');
+console.log(Moment.locale())
+
 enum UserStatus {
   LoggedIn = "Logged In",
   // LoggingIn = "Logging In",
@@ -8,9 +15,9 @@ enum UserStatus {
   VerifyingLogIn = "Verifying Log In"
 }
 
-enum Default {
-  PIN = "1234"
-}
+// enum Default {
+//   PIN = "1234"
+// }
 
 enum WeatherType {
   Cloudy = "Cloudy",
@@ -49,9 +56,9 @@ const T: ITimeUtility = {
   format: (date: Date): string => {
     const hours: number = T.formatHours(date.getHours());
     const minutes: number = date.getMinutes();
-    // const seconds: number = date.getSeconds();
+    const seconds: number = date.getSeconds();
 
-    return `${hours}:${T.formatSegment(minutes)}`;
+    return `${hours}:${T.formatSegment(minutes)}:${seconds}`;
   },
   formatHours: (hours: number): number => {
     return hours % 12 === 0 ? 12 : hours % 12;
@@ -61,23 +68,23 @@ const T: ITimeUtility = {
   }
 }
 
-interface ILogInUtility {
-  verify: (pin: string) => Promise<boolean>;
-}
+// interface ILogInUtility {
+//   verify: (pin: string) => Promise<boolean>;
+// }
 
-const LogInUtility: ILogInUtility = {
-  verify: async (pin: string): Promise<boolean> => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (pin === Default.PIN) {
-          resolve(true);
-        } else {
-          reject(`Invalid pin: ${pin}`);
-        }
-      }, N.rand(300, 700));
-    });
-  }
-}
+// const LogInUtility: ILogInUtility = {
+//   verify: async (pin: string): Promise<boolean> => {
+//     return new Promise((resolve, reject) => {
+//       setTimeout(() => {
+//         if (pin === Default.PIN) {
+//           resolve(true);
+//         } else {
+//           reject(`Invalid pin: ${pin}`);
+//         }
+//       }, N.rand(300, 700));
+//     });
+//   }
+// }
 
 const useCurrentDateEffect = (): Date => {
   const [date, setDate] = React.useState<Date>(new Date());
@@ -180,9 +187,12 @@ const Reminder: React.FC = () => {
 
 const Time: React.FC = () => {
   const date: Date = useCurrentDateEffect();
-
   return (
-    <span className="time">{T.format(date)}</span>
+    <span>
+      <span>{Moment(date).format('LL')}</span>
+      <span className="time">
+        {T.format(date)}</span>
+    </span>
   )
 }
 
