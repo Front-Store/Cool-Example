@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .first {
+        border: 1px solid red;
+      }
+
+      .second {
+        height: 180px;
+        border: 1px solid yellow;
+      }
+      .last {
+        flex: 1;
+        border: 1px solid blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="first">
+        第一项 第一项 第一项 第一项 第一项 第一项 第一项 第一项 第一项 第一项
+        第一项 第一项 第一项 第一项 第一项 第一项 第一项 第一项 第一项 第一项
+        第一项 第一项
+      </div>
+
+      <div class="second">
+        第二项 第二项 第二项 第二项 第二项 第二项 第二项 第二项 第二项 第二项
+        第二项 第二项 第二项 第二项 第二项 第二项 第二项 第二项 第二项 第二项
+        第二项 第二项 第二项 第二项 第二项 第二项 第二项 第二项 第二项 第二项
+        第二项 第二项 第二项 第二项 第二项 第二项 第二项 第二项 第二项
+      </div>
+      <div class="last">第二项内容</div>
+    </div>
+  </body>
+</html>

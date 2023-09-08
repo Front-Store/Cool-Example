@@ -162,18 +162,6 @@ const ScrollableComponent: React.FC<IScrollableComponentProps> = (props: IScroll
   );
 }
 
-const WeatherSnap: React.FC = () => {
-  const [temperature] = React.useState<number>(N.rand(65, 85));
-
-  return (
-    <span className="weather">
-      <i className="weather-type fa-duotone fa-sun" />
-      <span className="weather-temperature-value">{temperature}</span>
-      <span className="weather-temperature-unit">°F</span>
-    </span>
-  )
-}
-
 const Reminder: React.FC = () => {
   return (
     <div className="reminder">
@@ -204,7 +192,6 @@ const Info = (props: IInfoProps) => {
   return (
     <div id={props.id} className="info">
       <Time />
-      <WeatherSnap />
     </div>
   )
 }
@@ -450,7 +437,8 @@ const Weather: React.FC = () => {
       return (
         <div key={day.id} className="day-card">
           <div className="day-card-content">
-            <span className="day-weather-temperature">{day.temperature}<span className="day-weather-temperature-unit">°F</span></span>
+            <span className="day-weather-temperature">{day.temperature}
+            </span>
             <i className={`day-weather-icon ${getIcon()} ${day.weather.toLowerCase()}`} />
             <span className="day-name">{day.name}</span>
           </div>
@@ -676,7 +664,7 @@ const Menu: React.FC = () => {
             </div>
           </div>
           <QuickNav />
-          <a id="youtube-link" className="clear-button" href="https://www.youtube.com/c/Hyperplexed" target="_blank">
+          <a id="youtube-link" className="clear-button" href="javascript(0);" target="_blank">
             <i className="fa-brands fa-youtube" />
             <span>Hyperplexed</span>
           </a>
@@ -706,14 +694,6 @@ const Background: React.FC = () => {
   )
 }
 
-const Loading: React.FC = () => {
-  return (
-    <div id="app-loading-icon">
-      <i className="fa-solid fa-spinner-third" />
-    </div>
-  )
-}
-
 interface IAppContext {
   userStatus: UserStatus;
   setUserStatusTo: (status: UserStatus) => void;
@@ -735,17 +715,8 @@ const App: React.FC = () => {
     <AppContext.Provider value={{ userStatus, setUserStatusTo }}>
       <div id="app" className={getStatusClass()}>
         <Info id="app-info" />
-        {/* <Pin /> */}
         <Menu />
         <Background />
-        <div id="sign-in-button-wrapper">
-          <UserStatusButton
-            icon="fa-solid fa-arrow-right-to-arc"
-            id="sign-in-button"
-            userStatus={UserStatus.LoggedIn}
-          />
-        </div>
-        <Loading />
       </div>
     </AppContext.Provider>
   )

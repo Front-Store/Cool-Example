@@ -296,44 +296,6 @@ $backgroundImage: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?
       line-height: 80px;
       text-shadow: 2px 2px 2px rgba(black, 0.1);
     }
-
-    .weather {
-      display: inline-flex;
-      height: 20px;
-      margin-bottom: 6px;
-      margin-left: 20px;
-
-      i,
-      span {
-        align-items: center;
-        display: inline-flex;
-      }
-
-      i {
-        color: $yellow;
-        font-size: 0.9em;
-      }
-
-      span {
-        color: white;
-      }
-
-      .weather-type {
-        height: 20px;
-      }
-
-      .weather-temperature-value {
-        font-size: 1.5em;
-        height: 20px;
-        margin-left: 5px;
-      }
-
-      .weather-temperature-unit {
-        align-items: flex-start;
-        font-size: 0.8em;
-        margin-left: 3px;
-      }
-    }
   }
 
   .reminder {
