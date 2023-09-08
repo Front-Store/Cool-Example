@@ -1,23 +1,19 @@
 import React from "react";
 import Moment from 'moment';
-import 'moment/dist/locale/zh-cn';
-
+// 导入 zh-cn Locale
+import 'moment/locale/zh-cn';
 import "./App.scss";
 
 Moment.locale('zh-cn');
+
 console.log(Moment.locale())
 
 enum UserStatus {
   LoggedIn = "Logged In",
-  // LoggingIn = "Logging In",
   LoggedOut = "Logged Out",
   LogInError = "Log In Error",
   VerifyingLogIn = "Verifying Log In"
 }
-
-// enum Default {
-//   PIN = "1234"
-// }
 
 enum WeatherType {
   Cloudy = "Cloudy",
@@ -35,16 +31,6 @@ const defaultPosition = (): IPosition => ({
   left: 0,
   x: 0
 });
-
-interface INumberUtility {
-  clamp: (min: number, value: number, max: number) => number;
-  rand: (min: number, max: number) => number;
-}
-
-const N: INumberUtility = {
-  clamp: (min: number, value: number, max: number) => Math.min(Math.max(min, value), max),
-  rand: (min: number, max: number) => Math.floor(Math.random() * (max - min + 1) + min)
-}
 
 interface ITimeUtility {
   format: (date: Date) => string;
@@ -67,24 +53,6 @@ const T: ITimeUtility = {
     return segment < 10 ? `0${segment}` : (segment).toString();
   }
 }
-
-// interface ILogInUtility {
-//   verify: (pin: string) => Promise<boolean>;
-// }
-
-// const LogInUtility: ILogInUtility = {
-//   verify: async (pin: string): Promise<boolean> => {
-//     return new Promise((resolve, reject) => {
-//       setTimeout(() => {
-//         if (pin === Default.PIN) {
-//           resolve(true);
-//         } else {
-//           reject(`Invalid pin: ${pin}`);
-//         }
-//       }, N.rand(300, 700));
-//     });
-//   }
-// }
 
 const useCurrentDateEffect = (): Date => {
   const [date, setDate] = React.useState<Date>(new Date());
@@ -175,10 +143,8 @@ const Reminder: React.FC = () => {
 const Time: React.FC = () => {
   const date: Date = useCurrentDateEffect();
   return (
-    <span>
-      <span>{Moment(date).format('LL')}</span>
-      <span className="time">
-        {T.format(date)}</span>
+    <span className="time-group">
+      <span className="time"> {Moment().format('dddd')}&nbsp;&nbsp;{Moment(date).format('LT')}</span>
     </span>
   )
 }
@@ -194,126 +160,6 @@ const Info = (props: IInfoProps) => {
     </div>
   )
 }
-
-// interface IPinDigitProps {
-//   focused: boolean;
-//   value: string;
-// }
-
-// const PinDigit: React.FC<IPinDigitProps> = (props: IPinDigitProps) => {
-//   const [hidden, setHiddenTo] = React.useState<boolean>(false);
-
-//   React.useEffect(() => {
-//     if (props.value) {
-//       const timeout = setTimeout(() => {
-//         setHiddenTo(true);
-//       }, 500);
-
-//       return () => {
-//         setHiddenTo(false);
-
-//         clearTimeout(timeout);
-//       }
-//     }
-//   }, [props.value]);
-//   const className = `app-pin-digit ${props.focused ? 'focused' : ''} ${hidden}`;
-
-//   return (
-//     <div className={className}>
-//       <span className="app-pin-digit-value">{props.value || ""}</span>
-//     </div>
-//   )
-// }
-
-// const Pin: React.FC = () => {
-//   const { userStatus, setUserStatusTo } = React.useContext(AppContext);
-
-//   const [pin, setPinTo] = React.useState<string>("");
-
-//   const ref = React.useRef<HTMLInputElement>(null);
-
-//   React.useEffect(() => {
-//     // if (userStatus === UserStatus.LoggingIn || userStatus === UserStatus.LogInError) {
-//     if (userStatus === UserStatus.LogInError) {
-//       ref.current?.focus();
-//     } else {
-//       setPinTo("");
-//     }
-//   }, [userStatus]);
-
-//   // React.useEffect(() => {
-//   //   if (pin.length === 4) {
-//   //     const verify = async (): Promise<void> => {
-//   //       try {
-//   //         setUserStatusTo(UserStatus.VerifyingLogIn);
-
-//   //         if (await LogInUtility.verify(pin)) {
-//   //           setUserStatusTo(UserStatus.LoggedIn);
-//   //         }
-//   //       } catch (err) {
-//   //         console.error(err);
-
-//   //         setUserStatusTo(UserStatus.LogInError);
-//   //       }
-//   //     }
-
-//   //     verify();
-//   //   }
-
-//   //   if (userStatus === UserStatus.LogInError) {
-//   //     setUserStatusTo(UserStatus.LoggingIn);
-//   //   }
-//   // }, [pin]);
-
-//   const handleOnClick = (): void => {
-//     ref.current?.focus();
-//   }
-
-//   const handleOnCancel = (): void => {
-//     setUserStatusTo(UserStatus.LoggedOut);
-//   }
-
-//   const handleOnChange = (e: any): void => {
-//     if (e.target.value.length <= 4) {
-//       setPinTo(e.target.value.toString());
-//     }
-//   }
-
-//   const getCancelText = (): JSX.Element => {
-//     return (
-//       <span id="app-pin-cancel-text" onClick={handleOnCancel}>Cancel</span>
-//     )
-//   }
-
-//   const getErrorText = () => {
-//     if (userStatus === UserStatus.LogInError) {
-//       return (
-//         <span id="app-pin-error-text">Invalid</span>
-//       )
-//     }
-//   }
-
-//   return (
-//     <div id="app-pin-wrapper">
-//       <input
-//         disabled={userStatus !== UserStatus.LoggingIn && userStatus !== UserStatus.LogInError}
-//         id="app-pin-hidden-input"
-//         maxLength={4}
-//         ref={ref}
-//         type="number"
-//         value={pin}
-//         onChange={handleOnChange}
-//       />
-//       <div id="app-pin" onClick={handleOnClick}>
-//         <PinDigit focused={pin.length === 0} value={pin[0]} />
-//         <PinDigit focused={pin.length === 1} value={pin[1]} />
-//         <PinDigit focused={pin.length === 2} value={pin[2]} />
-//         <PinDigit focused={pin.length === 3} value={pin[3]} />
-//       </div>
-//       <h3 id="app-pin-label">Enter PIN (1234) {getErrorText()} {getCancelText()}</h3>
-//     </div>
-//   )
-// }
 
 interface IMenuSectionProps {
   children: any;
@@ -513,20 +359,20 @@ const Tools: React.FC = () => {
 const Restaurants: React.FC = () => {
   const getRestaurants = (): JSX.Element[] => {
     return [{
-      desc: "The best burgers in town",
+      desc: "搜集了非常多的免费软件工具",
       id: 1,
       image: "https://images.unsplash.com/photo-1606131731446-5568d87113aa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YnVyZ2Vyc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-      title: "Burgers"
+      title: "工具"
     }, {
-      desc: "The worst ice-cream around",
+      desc: "形形色色的，我做过的网站",
       id: 2,
       image: "https://images.unsplash.com/photo-1576506295286-5cda18df43e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aWNlJTIwY3JlYW18ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-      title: "Ice Cream"
+      title: "网站"
     }, {
-      desc: "This 'Za be gettin down",
+      desc: "很多炫酷的页面组件",
       id: 3,
       image: "https://images.unsplash.com/photo-1590947132387-155cc02f3212?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGl6emF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-      title: "Pizza"
+      title: "组件"
     }, {
       desc: "BBQ ain't need no rhyme",
       id: 4,
@@ -550,7 +396,7 @@ const Restaurants: React.FC = () => {
     });
   }
   return (
-    <MenuSection icon="fa-regular fa-pot-food" id="restaurants-section" title="Get it delivered!">
+    <MenuSection icon="fa-regular fa-pot-food" id="restaurants-section" title="物料">
       {getRestaurants()}
     </MenuSection>
   )
