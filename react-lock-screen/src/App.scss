@@ -423,8 +423,22 @@ body {
           }
         }
 
+        &.tools-image {
+          background-image: url(./assets/img/tools.jpg);
+        }
+        &.web-image {
+          background-image: url(./assets/img/web.jpg);
+        }
+
+        &.component-image {
+          background-image: url(./assets/img/component.jpg);
+        }
+        &.article-image {
+          background-image: url(./assets/img/article.jpg);
+        }
+
         .restaurant-card-content {
-          background: linear-gradient(to top, rgba(black, 0.8), transparent);
+          // background: linear-gradient(to top, rgba(black, 0.8), transparent);
           border-radius: 10px;
           height: 100%;
           width: 100%;

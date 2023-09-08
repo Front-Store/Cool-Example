@@ -361,30 +361,26 @@ const Restaurants: React.FC = () => {
     return [{
       desc: "搜集了非常多的免费软件工具",
       id: 1,
-      image: "https://images.unsplash.com/photo-1606131731446-5568d87113aa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YnVyZ2Vyc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-      title: "工具"
+      className: "tools-image",
+      title: "工具箱"
     }, {
-      desc: "形形色色的，我做过的网站",
+      desc: "那些年做过的网站",
       id: 2,
-      image: "https://images.unsplash.com/photo-1576506295286-5cda18df43e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aWNlJTIwY3JlYW18ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      className: "web-image",
       title: "网站"
     }, {
-      desc: "很多炫酷的页面组件",
+      desc: "很多炫酷的页面组件,说不定就用上了",
       id: 3,
-      image: "https://images.unsplash.com/photo-1590947132387-155cc02f3212?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGl6emF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      className: "component-image",
       title: "组件"
     }, {
-      desc: "BBQ ain't need no rhyme",
+      desc: "大量知识扑面而来",
       id: 4,
-      image: "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YmFyYmVxdWV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-      title: "BBQ"
+      className: "article-image",
+      title: "文章"
     }].map((restaurant: any) => {
-      const styles: React.CSSProperties = {
-        backgroundImage: `url(${restaurant.image})`
-      }
-
       return (
-        <div key={restaurant.id} className="restaurant-card background-image" style={styles}>
+        <div key={restaurant.id} className={"restaurant-card background-image " + restaurant.className} >
           <div className="restaurant-card-content">
             <div className="restaurant-card-content-items">
               <span className="restaurant-card-title">{restaurant.title}</span>
@@ -396,7 +392,7 @@ const Restaurants: React.FC = () => {
     });
   }
   return (
-    <MenuSection icon="fa-regular fa-pot-food" id="restaurants-section" title="物料">
+    <MenuSection icon="fa-regular fa-pot-food" id="restaurants-section" title="专题">
       {getRestaurants()}
     </MenuSection>
   )
