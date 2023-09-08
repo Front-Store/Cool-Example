@@ -168,7 +168,6 @@ const Reminder: React.FC = () => {
       <div className="reminder-icon">
         <i className="fa-regular fa-bell" />
       </div>
-      <span className="reminder-text">Extra cool people meeting <span className="reminder-time">10AM</span></span>
     </div>
   )
 }
@@ -354,19 +353,12 @@ const MenuSection: React.FC<IMenuSectionProps> = (props: IMenuSectionProps) => {
 
 const QuickNav: React.FC = () => {
   const getItems = (): JSX.Element[] => {
-    return [{
-      id: 1,
-      label: "Weather"
-    }, {
-      id: 2,
-      label: "Food"
-    }, {
-      id: 3,
-      label: "Apps"
-    }, {
-      id: 4,
-      label: "Movies"
-    }].map((item: any) => {
+    return [
+      { id: 1, label: "前端哲学家" },
+      { id: 2, label: "爬虫界萌新" },
+      { id: 3, label: "反编译萌新" },
+      { id: 4, label: "Ctrl C+V 专家" },
+    ].map((item: any) => {
       return (
         <div key={item.id} className="quick-nav-item clear-button">
           <span className="quick-nav-item-label">{item.label}</span>
@@ -386,38 +378,38 @@ const Weather: React.FC = () => {
   const getDays = (): JSX.Element[] => {
     return [{
       id: 1,
-      name: "Mon",
-      temperature: N.rand(60, 80),
+      name: "周一",
+      temperature: "上班，认真工作",
       weather: WeatherType.Sunny
     }, {
       id: 2,
-      name: "Tues",
-      temperature: N.rand(60, 80),
+      name: "周二",
+      temperature: "上班，摸鱼",
       weather: WeatherType.Sunny
     }, {
       id: 3,
-      name: "Wed",
-      temperature: N.rand(60, 80),
+      name: "周三",
+      temperature: "上班，摸鱼",
       weather: WeatherType.Cloudy
     }, {
       id: 4,
-      name: "Thurs",
-      temperature: N.rand(60, 80),
+      name: "周四",
+      temperature: "上班，摸鱼",
       weather: WeatherType.Rainy
     }, {
       id: 5,
-      name: "Fri",
-      temperature: N.rand(60, 80),
+      name: "周五",
+      temperature: "上班，努力奋斗",
       weather: WeatherType.Stormy
     }, {
       id: 6,
-      name: "Sat",
-      temperature: N.rand(60, 80),
+      name: "周六",
+      temperature: "躺平",
       weather: WeatherType.Sunny
     }, {
       id: 7,
-      name: "Sun",
-      temperature: N.rand(60, 80),
+      name: "周末",
+      temperature: "躺平",
       weather: WeatherType.Cloudy
     }].map((day: any) => {
       const getIcon = (): string => {
@@ -447,7 +439,7 @@ const Weather: React.FC = () => {
     });
   }
   return (
-    <MenuSection icon="fa-solid fa-sun" id="weather-section" scrollable title="How's it look out there?">
+    <MenuSection icon="fa-solid fa-sun" id="weather-section" scrollable title="日程">
       {getDays()}
     </MenuSection>
   )
@@ -664,10 +656,6 @@ const Menu: React.FC = () => {
             </div>
           </div>
           <QuickNav />
-          <a id="youtube-link" className="clear-button" href="javascript(0);" target="_blank">
-            <i className="fa-brands fa-youtube" />
-            <span>Hyperplexed</span>
-          </a>
           <Weather />
           <Restaurants />
           <Tools />

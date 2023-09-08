@@ -101,8 +101,6 @@ body {
   }
 }
 
-$backgroundImage: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2076&q=80";
-
 .background-image {
   background-position: center;
   background-repeat: no-repeat;
@@ -235,7 +233,7 @@ $backgroundImage: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?
     z-index: 1;
 
     #app-background-image {
-      background-image: url($backgroundImage);
+      background-image: url("./assets/img/backgroud.jpg");
       height: 100%;
       transition: filter 250ms, transform 250ms;
       width: 100%;
@@ -322,13 +320,6 @@ $backgroundImage: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?
 
     .reminder-icon {
       align-items: center;
-      height: 20px;
-    }
-
-    .reminder-time {
-      align-items: flex-end;
-      color: gray(30);
-      font-size: 0.8em;
       height: 20px;
     }
   }
