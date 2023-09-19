@@ -6,7 +6,7 @@ import { UserStatus } from "./models/home"
 import AppContext from "./contexts/homeContext"
 import TimeInfo from "./components/timeInfo"
 import Menu from "./views/home/index"
-
+import Footer from "./views/footer/index";
 const Background: React.FC = () => {
   const { userStatus, setUserStatusTo } = React.useContext(AppContext);
 
@@ -37,6 +37,9 @@ const App: React.FC = () => {
         <Menu />
         <Background />
       </div>
+      <footer style={{ display: "none" }}>
+        <Footer></Footer>
+      </footer>
     </AppContext.Provider>
   )
 }
