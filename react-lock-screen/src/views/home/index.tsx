@@ -219,15 +219,15 @@ const Tools: React.FC = () => {
     return [{
       icon: "fa-solid fa-cloud-sun",
       id: 1,
-      image: "https://images.unsplash.com/photo-1492011221367-f47e3ccd77a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHdlYXRoZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      image: "https://github-readme-stats.vercel.app/api/top-langs/?username=danhuaxiansheng&layout=compact&custom_title=开发语言",
       label: "Weather",
-      name: "Cloudly"
+      name: "我的开发语言"
     }, {
       icon: "fa-solid fa-calculator-simple",
       id: 2,
-      image: "https://images.unsplash.com/photo-1587145820266-a5951ee6f620?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y2FsY3VsYXRvcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      image: "https://github-readme-stats.vercel.app/api?username=danhuaxiansheng&show_icons=true&custom_title=星星",
       label: "Calc",
-      name: "Mathio"
+      name: "星星"
     }, {
       icon: "fa-solid fa-piggy-bank",
       id: 3,
@@ -260,13 +260,13 @@ const Tools: React.FC = () => {
       return (
         <div key={tool.id} className="tool-card">
           <div className="tool-card-background background-image" style={styles} />
-          <div className="tool-card-content">
+          {/* <div className="tool-card-content">
             <div className="tool-card-content-header">
               <span className="tool-card-label">{tool.label}</span>
               <span className="tool-card-name">{tool.name}</span>
             </div>
             <i className={`${tool.icon} tool-card-icon`} />
-          </div>
+          </div> */}
         </div>
       );
     })
