@@ -2,6 +2,7 @@ import React from "react";
 import { UserStatus, WeatherType } from "../../models/home"
 import AppContext from "../../contexts/homeContext"
 import TimeInfo from "../../components/timeInfo"
+import Setting from "../../setting.json"
 
 interface IPosition {
   left: number;
@@ -124,7 +125,7 @@ const QuickNav: React.FC = () => {
     return [
       { id: 1, label: "前端哲学家" },
       { id: 2, label: "爬虫界萌新" },
-      { id: 3, label: "反编译萌新" },
+      { id: 3, label: "反编译熟手" },
       { id: 4, label: "Ctrl C+V 专家" },
     ].map((item: any) => {
       return (
@@ -279,37 +280,46 @@ const Tools: React.FC = () => {
 }
 
 const Restaurants: React.FC = () => {
+
+  const cardOnClick = (restaurant: any): void => {
+    window.open(Setting.MainUrl + restaurant.url, "_blank");
+  }
+
   const getRestaurants = (): JSX.Element[] => {
     return [{
       desc: "搜集了非常多的免费软件工具",
       id: 1,
       className: "tools-image",
-      title: "工具箱"
+      title: "工具箱",
+      url: "",
     }, {
       desc: "那些年做过的网站",
       id: 2,
       className: "web-image",
+      url: "/project",
       title: "网站"
     }, {
       desc: "很多炫酷的页面组件,说不定就用上了",
       id: 3,
       className: "component-image",
+      url: "/components",
       title: "组件"
     }, {
       desc: "大量知识扑面而来",
       id: 4,
       className: "article-image",
+      url: "/article",
       title: "文章"
     }].map((restaurant: any) => {
       return (
         <div key={restaurant.id} className={"restaurant-card background-image " + restaurant.className} >
-          <div className="restaurant-card-content">
+          <div className="restaurant-card-content" onClick={() => cardOnClick(restaurant)}>
             <div className="restaurant-card-content-items">
               <span className="restaurant-card-title">{restaurant.title}</span>
               <span className="restaurant-card-desc">{restaurant.desc}</span>
             </div>
           </div>
-        </div>
+        </div >
       )
     });
   }

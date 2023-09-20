@@ -37,6 +37,7 @@ const App: React.FC = () => {
         <Menu />
         <Background />
       </div>
+      {/* 底部备案号 */}
       <footer style={{ display: "none" }}>
         <Footer></Footer>
       </footer>
