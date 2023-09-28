@@ -358,16 +358,25 @@ const Movies: React.FC = () => {
       title: "Area Fights"
     }].map((movie: any) => {
       const id: string = `movie-card-${movie.id}`;
+      // <div className={"movie-card-background background-image " + movie.imageClass} >
       return (
         <div key={movie.id} id={id} className="movie-card">
-          <div className={"movie-card-background background-image " + movie.imageClass} />
-          <div className="movie-card-content">
+          <div className="movie-card-background"  >
+            <img
+              src="https://ggayane.github.io/css-experiments/cards/force_mage-cover.jpg"
+            />
+          </div>
+          <img
+            src="https://ggayane.github.io/css-experiments/cards/force_mage-character.webp"
+            className="character"
+          />
+          {/* <div className="movie-card-content">
             <div className="movie-card-info">
               <span className="movie-card-title">{movie.title}</span>
               <span className="movie-card-desc">{movie.desc}</span>
             </div>
-            <i className={movie.icon} />
-          </div>
+            <i className={movie.icon} />5
+          </div> */}
         </div>
       );
     })
