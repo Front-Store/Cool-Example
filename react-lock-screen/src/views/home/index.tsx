@@ -256,7 +256,6 @@ const Tools: React.FC = () => {
       const styles: React.CSSProperties = {
         backgroundImage: `url(${tool.image})`
       }
-
       return (
         <div key={tool.id} className="tool-card">
           <div className="tool-card-background background-image" style={styles} />
@@ -361,15 +360,19 @@ const Movies: React.FC = () => {
       // <div className={"movie-card-background background-image " + movie.imageClass} >
       return (
         <div key={movie.id} id={id} className="movie-card">
-          <div className="movie-card-background"  >
-            <img
-              src="https://ggayane.github.io/css-experiments/cards/force_mage-cover.jpg"
-            />
-          </div>
-          <img
+          <div className={"movie-card-background background-image " + movie.imageClass}></div>
+          <div className={" character background-image " + movie.imageClass + '-preview'}></div>
+
+          {/* <img
             src="https://ggayane.github.io/css-experiments/cards/force_mage-character.webp"
             className="character"
-          />
+          /> */}
+
+          {/* <img
+            src="https://ggayane.github.io/css-experiments/cards/force_mage-character.webp"
+            className="character"
+          /> */}
+
           {/* <div className="movie-card-content">
             <div className="movie-card-info">
               <span className="movie-card-title">{movie.title}</span>
