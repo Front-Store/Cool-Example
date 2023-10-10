@@ -384,7 +384,7 @@ body {
         box-shadow: 2px 2px 4px rgba(black, 0.25);
         cursor: pointer;
         height: 14vw;
-        max-height: 240px;
+        max-height: 270px;
         position: relative;
         transition: transform 250ms;
         width: 25%;
@@ -399,26 +399,13 @@ body {
           }
         }
 
-        &.tools-image {
-          background-image: url(./assets/img/home/lanyan.jpeg);
-        }
-        &.web-image {
-          background-image: url(./assets/img/home/huoquan.jpeg);
-        }
-
-        &.component-image {
-          background-image: url(./assets/img/home/lanquan.jpeg);
-        }
-        &.article-image {
-          background-image: url(./assets/img/home/landao.jpeg);
-        }
-
-        .restaurant-card-content {
-          // background: linear-gradient(to top, rgba(black, 0.8), transparent);
-          border-radius: 10px;
+        .background-image {
           height: 100%;
           width: 100%;
-
+          border-radius: 10px;
+          filter: brightness(88%);
+        }
+        .restaurant-card-content {
           .restaurant-card-content-items {
             bottom: 0px;
             display: flex;
@@ -435,7 +422,7 @@ body {
             }
 
             .restaurant-card-desc {
-              color: $blue;
+              color: cornsilk;
               font-size: 0.9em;
             }
           }

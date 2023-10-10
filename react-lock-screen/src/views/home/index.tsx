@@ -126,7 +126,6 @@ const QuickNav: React.FC = () => {
       { id: 1, label: "前端哲学家" },
       { id: 2, label: "爬虫界萌新" },
       { id: 3, label: "反编译熟手" },
-      { id: 4, label: "Ctrl C+V 专家" },
     ].map((item: any) => {
       return (
         <div key={item.id} className="quick-nav-item clear-button">
@@ -272,7 +271,7 @@ const Tools: React.FC = () => {
   }
 
   return (
-    <MenuSection icon="fa-solid fa-toolbox" id="tools-section" title="What's Appening?">
+    <MenuSection icon="fa-solid fa-toolbox" id="tools-section" title="活动">
       {getTools()}
     </MenuSection>
   );
@@ -311,7 +310,8 @@ const Restaurants: React.FC = () => {
       title: "文章"
     }].map((restaurant: any) => {
       return (
-        <div key={restaurant.id} className={"restaurant-card background-image " + restaurant.className} >
+        <div key={restaurant.id} className="restaurant-card" >
+          <div className={" background-image " + restaurant.className}></div>
           <div className="restaurant-card-content" onClick={() => cardOnClick(restaurant)}>
             <div className="restaurant-card-content-items">
               <span className="restaurant-card-title">{restaurant.title}</span>
@@ -386,7 +386,7 @@ const Movies: React.FC = () => {
   }
 
   return (
-    <MenuSection icon="fa-solid fa-camera-movie" id="movies-section" scrollable title="Popcorn time!">
+    <MenuSection icon="fa-solid fa-camera-movie" id="movies-section" scrollable title="娱乐">
       {getMovies()}
     </MenuSection>
   );
