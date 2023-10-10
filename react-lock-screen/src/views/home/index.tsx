@@ -310,9 +310,9 @@ const Restaurants: React.FC = () => {
       title: "文章"
     }].map((restaurant: any) => {
       return (
-        <div key={restaurant.id} className="restaurant-card" >
+        <div key={restaurant.id} className="restaurant-card" onClick={() => cardOnClick(restaurant)} >
           <div className={" background-image " + restaurant.className}></div>
-          <div className="restaurant-card-content" onClick={() => cardOnClick(restaurant)}>
+          <div className="restaurant-card-content">
             <div className="restaurant-card-content-items">
               <span className="restaurant-card-title">{restaurant.title}</span>
               <span className="restaurant-card-desc">{restaurant.desc}</span>
