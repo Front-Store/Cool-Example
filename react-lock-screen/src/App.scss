@@ -378,7 +378,6 @@ body {
     .menu-section-content {
       display: flex;
       gap: 1em;
-
       .restaurant-card {
         border-radius: 10px;
         box-shadow: 2px 2px 4px rgba(black, 0.25);
@@ -589,6 +588,7 @@ body {
     .menu-section-content {
       display: flex;
       gap: 1em;
+      flex-wrap: wrap;
 
       #movie-card-1 {
         .movie-card-content {
@@ -640,7 +640,7 @@ body {
         min-height: 460px;
         min-width: 260px;
         position: relative;
-        width: calc(100% / 4);
+        width: calc(100% / 4 - 12px);
         &:hover {
           .movie-card-background {
             transform: perspective(900px) translateY(-5%) rotateX(25deg)
