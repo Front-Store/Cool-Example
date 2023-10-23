@@ -14,7 +14,6 @@ const defaultPosition = (): IPosition => ({
   x: 0
 });
 
-
 interface IScrollableComponentState {
   grabbing: boolean;
   position: IPosition;
@@ -28,7 +27,6 @@ interface IScrollableComponentProps {
 
 const ScrollableComponent: React.FC<IScrollableComponentProps> = (props: IScrollableComponentProps) => {
   const ref = React.useRef<HTMLDivElement>(null);
-
   const [state, setStateTo] = React.useState<IScrollableComponentState>({
     grabbing: false,
     position: defaultPosition()
@@ -38,10 +36,7 @@ const ScrollableComponent: React.FC<IScrollableComponentProps> = (props: IScroll
     setStateTo({
       ...state,
       grabbing: true,
-      position: {
-        x: e.clientX,
-        left: ref.current?.scrollLeft ?? 0
-      }
+      position: { x: e.clientX, left: ref.current?.scrollLeft ?? 0 }
     });
   }
 
@@ -82,7 +77,6 @@ const Reminder: React.FC = () => {
     </div>
   )
 }
-
 
 interface IMenuSectionProps {
   children: any;
@@ -193,7 +187,6 @@ const Weather: React.FC = () => {
           default: return '';
         }
       }
-
       return (
         <div key={day.id} className="day-card">
           <div className="day-card-content">
@@ -206,11 +199,7 @@ const Weather: React.FC = () => {
       );
     });
   }
-  return (
-    <MenuSection icon="fa-solid fa-sun" id="weather-section" scrollable title="日程">
-      {getDays()}
-    </MenuSection>
-  )
+  return (<MenuSection icon="fa-solid fa-sun" id="weather-section" scrollable title="日程">{getDays()}</MenuSection>)
 }
 
 const Tools: React.FC = () => {
@@ -252,9 +241,7 @@ const Tools: React.FC = () => {
       label: "Video Chat",
       name: "Chatty"
     }].map((tool: any) => {
-      const styles: React.CSSProperties = {
-        backgroundImage: `url(${tool.image})`
-      }
+      const styles: React.CSSProperties = { backgroundImage: `url(${tool.image})` }
       return (
         <div key={tool.id} className="tool-card">
           <div className="tool-card-background background-image" style={styles} />
@@ -270,18 +257,11 @@ const Tools: React.FC = () => {
     })
   }
 
-  return (
-    <MenuSection icon="fa-solid fa-toolbox" id="tools-section" title="活动">
-      {getTools()}
-    </MenuSection>
-  );
+  return (<MenuSection icon="fa-solid fa-toolbox" id="tools-section" title="活动">{getTools()}</MenuSection>);
 }
 
 const Restaurants: React.FC = () => {
-
-  const cardOnClick = (restaurant: any): void => {
-    window.open(Setting.MainUrl + restaurant.url, "_blank");
-  }
+  const cardOnClick = (restaurant: any): void => { window.open(Setting.MainUrl + restaurant.url, "_blank"); }
 
   const getRestaurants = (): JSX.Element[] => {
     return [{
@@ -322,11 +302,8 @@ const Restaurants: React.FC = () => {
       )
     });
   }
-  return (
-    <MenuSection icon="fa-regular fa-pot-food" id="restaurants-section" title="专题">
-      {getRestaurants()}
-    </MenuSection>
-  )
+
+  return (<MenuSection icon="fa-regular fa-pot-food" id="restaurants-section" title="专题">{getRestaurants()}</MenuSection>)
 }
 
 const Movies: React.FC = () => {
@@ -337,19 +314,22 @@ const Movies: React.FC = () => {
       icon: "fa-solid fa-galaxy",
       imageClass: "redwushi-image",
       title: "Protectors of the Milky Way"
-    }, {
+    },
+    {
       desc: "Some people leave their holes to disrupt some things.",
       id: 2,
       icon: "fa-solid fa-hat-wizard",
       imageClass: "yingguanggril-image",
       title: "Hole People"
-    }, {
+    },
+    {
       desc: "A boy with a dent in his head tries to stop a bad guy. And by bad I mean bad at winning.",
       id: 3,
       icon: "fa-solid fa-broom-ball",
       imageClass: "redfenghaung-image",
       title: "Pot of Hair"
-    }, {
+    },
+    {
       desc: "A long drawn out story of some people fighting over some space. Cuz there isn't enough of it.",
       id: 4,
       icon: "fa-solid fa-starship-freighter",
@@ -362,7 +342,6 @@ const Movies: React.FC = () => {
         <div key={movie.id} id={id} className="movie-card">
           <div className={"movie-card-background background-image " + movie.imageClass}></div>
           <div className={" character background-image " + movie.imageClass + '-preview'}></div>
-
           {/* <img
             src="https://ggayane.github.io/css-experiments/cards/force_mage-character.webp"
             className="character"
@@ -401,9 +380,7 @@ interface IUserStatusButton {
 const UserStatusButton: React.FC<IUserStatusButton> = (props: IUserStatusButton) => {
   const { userStatus, setUserStatusTo } = React.useContext(AppContext);
 
-  const handleOnClick = (): void => {
-    setUserStatusTo(props.userStatus);
-  }
+  const handleOnClick = (): void => { setUserStatusTo(props.userStatus); }
 
   return (
     <button
@@ -412,9 +389,7 @@ const UserStatusButton: React.FC<IUserStatusButton> = (props: IUserStatusButton)
       disabled={userStatus === props.userStatus}
       type="button"
       onClick={handleOnClick}
-    >
-      <i className={props.icon} />
-    </button>
+    ><i className={props.icon} /></button>
   )
 }
 

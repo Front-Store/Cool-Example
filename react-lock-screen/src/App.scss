@@ -347,27 +347,22 @@ body {
 
   .menu-section {
     margin-top: 60px;
-
     .menu-section-title {
       align-items: center;
       display: flex;
       gap: 6px;
-
       i,
       span {
         color: gray(245);
       }
-
       i {
         font-size: 1em;
       }
-
       .menu-section-title-text {
         color: rgba(white, 0.8);
         font-size: 1.25em;
       }
     }
-
     .menu-section-content {
       margin-top: 15px;
       padding-top: 5px;
@@ -387,7 +382,6 @@ body {
         position: relative;
         transition: transform 250ms;
         width: 25%;
-
         &:hover {
           transform: translateY(-5px);
 
@@ -397,7 +391,6 @@ body {
             }
           }
         }
-
         .background-image {
           height: 100%;
           width: 100%;
@@ -436,7 +429,6 @@ body {
       gap: 1em;
       padding: 5px 0px;
       width: 100%;
-
       .day-card {
         backdrop-filter: blur(3px);
         background-color: rgba(white, 0.1);
@@ -450,30 +442,25 @@ body {
         position: relative;
         transition: transform 250ms;
         width: calc(100% / 7);
-
         &:last-of-type {
           margin-right: 5px;
         }
-
         .day-card-content {
           display: flex;
           flex-direction: column;
           height: calc(100% - 20px);
           justify-content: space-evenly;
           padding: 10px;
-
           i,
           span {
             color: gray(245);
             text-align: center;
           }
-
           .day-weather-temperature {
             align-items: flex-start;
             display: flex;
             font-size: 0.9em;
             justify-content: center;
-
             .day-weather-temperature-unit {
               font-size: 0.8em;
               margin-left: 3px;
