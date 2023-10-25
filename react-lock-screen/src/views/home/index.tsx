@@ -4,6 +4,9 @@ import AppContext from "../../contexts/homeContext"
 import TimeInfo from "../../components/timeInfo"
 import Setting from "../../setting.json"
 import "../../assets/css/home.scss";
+
+import { PoweroffOutlined } from '@ant-design/icons';
+
 interface IPosition {
   left: number;
   x: number;
@@ -117,9 +120,9 @@ const MenuSection: React.FC<IMenuSectionProps> = (props: IMenuSectionProps) => {
 const QuickNav: React.FC = () => {
   const getItems = (): JSX.Element[] => {
     return [
-      { id: 1, label: "前端哲学家" },
-      { id: 2, label: "爬虫界萌新" },
-      { id: 3, label: "反编译熟手" },
+      { id: 1, label: "前端" },
+      { id: 2, label: "爬虫" },
+      { id: 3, label: "反编译" },
     ].map((item: any) => {
       return (
         <div key={item.id} className="quick-nav-item clear-button">
@@ -384,13 +387,22 @@ const UserStatusButton: React.FC<IUserStatusButton> = (props: IUserStatusButton)
   {/* <PoweroffOutlined /> */ }
 
   return (
-    <button
+    <PoweroffOutlined
       id={props.id}
       className="user-status-button clear-button"
       disabled={userStatus === props.userStatus}
+      style={{ color: '#fff' }}
       type="button"
       onClick={handleOnClick}
-    ><i className={props.icon} /></button>
+    />
+
+    // <button
+    //   id={props.id}
+    //   className="user-status-button clear-button"
+    //   disabled={userStatus === props.userStatus}
+    //   type="button"
+    //   onClick={handleOnClick}
+    // ><i className={props.icon} /></button>
   )
 }
 

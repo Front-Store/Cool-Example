@@ -240,9 +240,7 @@ body {
   }
 
   #app-info {
-    bottom: 28px;
-    left: 0px;
-    margin: 40px;
+    bottom: 5rem;
     margin-left: 0px;
     opacity: 0;
     position: absolute;
@@ -331,7 +329,9 @@ body {
 
     .quick-nav-item {
       padding: 10px 20px;
-
+      @media screen and (max-width: 800px) {
+        padding: 7px 13px;
+      }
       &:last-of-type {
         margin-right: 10px;
       }
@@ -422,6 +422,9 @@ body {
   }
 
   #weather-section {
+    @media screen and (max-width: 800px) {
+      display: none;
+    }
     .menu-section-content {
       display: flex;
       gap: 1em;
@@ -626,6 +629,9 @@ body {
         min-width: 260px;
         position: relative;
         width: calc(100% / 4 - 12px);
+        @media screen and (max-width: 800px) {
+          width: 100%;
+        }
         &:hover {
           .movie-card-background {
             transform: perspective(900px) translateY(-5%) rotateX(25deg)
@@ -841,7 +847,7 @@ body {
 
     #app-menu-content-wrapper {
       background: linear-gradient(to bottom, transparent, gray(30));
-      margin-top: 30vh;
+      margin-top: 17vh;
       min-height: 80vh;
       padding: 80px;
       padding-top: 0px;
