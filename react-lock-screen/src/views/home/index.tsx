@@ -379,7 +379,6 @@ interface IUserStatusButton {
 
 const UserStatusButton: React.FC<IUserStatusButton> = (props: IUserStatusButton) => {
   const { userStatus, setUserStatusTo } = React.useContext(AppContext);
-
   const handleOnClick = (): void => { setUserStatusTo(props.userStatus); }
 
   return (
