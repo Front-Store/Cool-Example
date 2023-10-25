@@ -68,15 +68,15 @@ const ScrollableComponent: React.FC<IScrollableComponentProps> = (props: IScroll
   );
 }
 
-const Reminder: React.FC = () => {
-  return (
-    <div className="reminder">
-      <div className="reminder-icon">
-        <i className="fa-regular fa-bell" />
-      </div>
-    </div>
-  )
-}
+// const Reminder: React.FC = () => {
+//   return (
+//     <div className="reminder">
+//       <div className="reminder-icon">
+//         <i className="fa-regular fa-bell" />
+//       </div>
+//     </div>
+//   )
+// }
 
 interface IMenuSectionProps {
   children: any;
@@ -381,6 +381,8 @@ const UserStatusButton: React.FC<IUserStatusButton> = (props: IUserStatusButton)
   const { userStatus, setUserStatusTo } = React.useContext(AppContext);
   const handleOnClick = (): void => { setUserStatusTo(props.userStatus); }
 
+  {/* <PoweroffOutlined /> */ }
+
   return (
     <button
       id={props.id}
@@ -400,15 +402,12 @@ const Menu: React.FC = () => {
           <div id="app-menu-content-header">
             <div className="app-menu-content-header-section">
               <TimeInfo id="app-menu-info" />
-              <Reminder />
             </div>
-            <div className="app-menu-content-header-section">
-              <UserStatusButton
-                icon="fa-solid fa-arrow-right-from-arc"
-                id="sign-out-button"
-                userStatus={UserStatus.LoggedOut}
-              />
-            </div>
+            <UserStatusButton
+              icon="fa-solid fa-arrow-right-from-arc"
+              id="sign-out-button"
+              userStatus={UserStatus.LoggedOut}
+            />
           </div>
           <QuickNav />
           <Weather />

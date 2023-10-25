@@ -253,11 +253,9 @@ body {
 
   .user-status-button {
     cursor: pointer;
-    margin-top: 10px;
     outline: none;
     padding: 10px;
     width: 100px;
-
     i {
       color: gray(245);
       font-size: 1.25em;
@@ -294,33 +292,33 @@ body {
     }
   }
 
-  .reminder {
-    display: flex;
-    gap: 6px;
-    margin-top: 10px;
+  // .reminder {
+  //   display: flex;
+  //   gap: 6px;
+  //   margin-top: 10px;
 
-    i,
-    div {
-      display: inline-flex;
-    }
+  //   i,
+  //   div {
+  //     display: inline-flex;
+  //   }
 
-    i {
-      color: gray(245);
-      font-size: 0.8em;
-      height: 12px;
-      line-height: 12px;
-    }
+  //   i {
+  //     color: gray(245);
+  //     font-size: 0.8em;
+  //     height: 12px;
+  //     line-height: 12px;
+  //   }
 
-    span {
-      color: rgba(white, 0.8);
-      font-size: 1.1em;
-    }
+  //   span {
+  //     color: rgba(white, 0.8);
+  //     font-size: 1.1em;
+  //   }
 
-    .reminder-icon {
-      align-items: center;
-      height: 20px;
-    }
-  }
+  //   // .reminder-icon {
+  //   //   align-items: center;
+  //   //   height: 20px;
+  //   // }
+  // }
 
   #quick-nav {
     display: flex;
@@ -856,6 +854,7 @@ body {
         #app-menu-content-header {
           display: flex;
           justify-content: space-between;
+          align-items: center;
         }
       }
     }
@@ -914,7 +913,7 @@ body {
   #app {
     .info {
       .time {
-        font-size: 4em;
+        font-size: 2em;
         height: 60px;
         line-height: 60px;
       }
