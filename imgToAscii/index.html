@@ -8,8 +8,10 @@
   <body>
     <script src="src/imgToAscii.js"></script>
     <script>
-      let ele = new imgToAscii("/img/elefante.png");
-      ele.display();
+      const converter = new imgToAscii("img/elefante.png", 1, 0);
+      converter.display();
+      // let ele = new imgToAscii("/img/elefante.png");
+      // ele.display();
     </script>
     <div>Some text</div>
     <!-- <script>
