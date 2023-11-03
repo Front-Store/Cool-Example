@@ -511,7 +511,6 @@ body {
 
         &:hover {
           transform: translateY(-5px);
-
           .tool-card-background {
             filter: grayscale(25%);
           }
@@ -519,7 +518,7 @@ body {
 
         .tool-card-background {
           border-radius: 10px;
-          /* filter: grayscale(100%); */
+          filter: grayscale(49%);
           height: 100%;
           left: 0px;
           // opacity: 0.8;
