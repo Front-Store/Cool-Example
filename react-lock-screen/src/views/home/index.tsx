@@ -149,17 +149,17 @@ const Weather: React.FC = () => {
     }, {
       id: 2,
       name: "周二",
-      temperature: "上班，摸鱼",
+      temperature: "上班，努力奋斗",
       weather: WeatherType.Sunny
     }, {
       id: 3,
       name: "周三",
-      temperature: "上班，摸鱼",
+      temperature: "上班，努力奋斗",
       weather: WeatherType.Cloudy
     }, {
       id: 4,
       name: "周四",
-      temperature: "上班，摸鱼",
+      temperature: "上班，努力奋斗",
       weather: WeatherType.Rainy
     }, {
       id: 5,
