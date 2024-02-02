@@ -144,27 +144,27 @@ const Weather: React.FC = () => {
     return [{
       id: 1,
       name: "周一",
-      temperature: "上班，认真工作",
+      temperature: "工作日",
       weather: WeatherType.Sunny
     }, {
       id: 2,
       name: "周二",
-      temperature: "上班，努力奋斗",
+      temperature: "工作日",
       weather: WeatherType.Sunny
     }, {
       id: 3,
       name: "周三",
-      temperature: "上班，努力奋斗",
+      temperature: "工作日",
       weather: WeatherType.Cloudy
     }, {
       id: 4,
       name: "周四",
-      temperature: "上班，努力奋斗",
+      temperature: "工作日",
       weather: WeatherType.Rainy
     }, {
       id: 5,
       name: "周五",
-      temperature: "上班，努力奋斗",
+      temperature: "工作日",
       weather: WeatherType.Stormy
     }, {
       id: 6,
@@ -210,51 +210,46 @@ const Tools: React.FC = () => {
     return [{
       icon: "fa-solid fa-cloud-sun",
       id: 1,
-      image: "https://github-readme-stats.vercel.app/api/top-langs/?username=danhuaxiansheng&layout=compact&custom_title=开发语言",
+      className: "activity1-img",
       label: "Weather",
       name: "我的开发语言"
     }, {
       icon: "fa-solid fa-calculator-simple",
       id: 2,
-      image: "https://github-readme-stats.vercel.app/api?username=danhuaxiansheng&show_icons=true&custom_title=星星",
+      className: "activity2-img",
       label: "Calc",
       name: "星星"
     }, {
       icon: "fa-solid fa-piggy-bank",
       id: 3,
-      image: "https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8YmFua3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      className: "activity3-img",
       label: "Bank",
       name: "Cashy"
     }, {
       icon: "fa-solid fa-plane",
       id: 4,
-      image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YWlycGxhbmV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      className: "activity4-img",
+      image: "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/82432880-3e69-4d54-a8ab-2253bc9b3ca6/original=true/00191-2002737404.jpeg",
       label: "Travel",
       name: "Fly-er-io-ly"
     }, {
       icon: "fa-solid fa-gamepad-modern",
       id: 5,
-      image: "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8dmlkZW8lMjBnYW1lc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      className: "activity5-img",
+      image: "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/908ae78a-f13f-4c3d-b3dd-64f340504ec6/original=true/00130-455216643.jpeg",
       label: "Games",
       name: "Gamey"
     }, {
       icon: "fa-solid fa-video",
       id: 6,
-      image: "https://images.unsplash.com/photo-1578022761797-b8636ac1773c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHZpZGVvJTIwY2hhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      className: "activity6-img",
+      image: "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/e6a0972c-69ee-4bdb-bd16-c4e7706181dd/original=true/00138-2379159556.jpeg",
       label: "Video Chat",
       name: "Chatty"
     }].map((tool: any) => {
-      const styles: React.CSSProperties = { backgroundImage: `url(${tool.image})` }
       return (
         <div key={tool.id} className="tool-card">
-          <div className="tool-card-background background-image" style={styles} />
-          {/* <div className="tool-card-content">
-            <div className="tool-card-content-header">
-              <span className="tool-card-label">{tool.label}</span>
-              <span className="tool-card-name">{tool.name}</span>
-            </div>
-            <i className={`${tool.icon} tool-card-icon`} />
-          </div> */}
+          <div className={"tool-card-background background-image " + tool.className}></div>
         </div>
       );
     })

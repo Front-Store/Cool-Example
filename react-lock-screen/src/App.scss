@@ -508,17 +508,12 @@ body {
         position: relative;
         transition: transform 250ms;
         width: calc(100% / 6);
-
         &:hover {
           transform: translateY(-5px);
-          .tool-card-background {
-            filter: grayscale(25%);
-          }
         }
 
         .tool-card-background {
           border-radius: 10px;
-          filter: grayscale(49%);
           height: 100%;
           left: 0px;
           // opacity: 0.8;
